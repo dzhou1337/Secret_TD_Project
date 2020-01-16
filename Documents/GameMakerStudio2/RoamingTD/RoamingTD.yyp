@@ -295,6 +295,14 @@
             }
         },
         {
+            "Key": "b6dd8ff4-f0eb-4b86-bfc6-68465c9cf642",
+            "Value": {
+                "id": "616e4325-a955-4bd5-80be-0f51148077b9",
+                "resourcePath": "sprites\\spr_gui_hud_resources\\spr_gui_hud_resources.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "b72f4eb4-2bae-4781-a904-21dc16efd168",
             "Value": {
                 "id": "b69236e3-b951-4944-a300-5d0a002746bc",

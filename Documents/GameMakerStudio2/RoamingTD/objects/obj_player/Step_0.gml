@@ -67,10 +67,18 @@ if(mouse_check_button_pressed(mb_left)){
 	}
 }
 
+if(mouse_wheel_up()){
+	cameraXScale = min(cameraXScale + 64, 640)
+	cameraYScale = min(cameraYScale + 36, 360)
+	
+} else if (mouse_wheel_down()){
+	cameraXScale = max(cameraXScale - 64, -640)
+	cameraYScale = max(cameraYScale - 36, -360)
+}
 
 //better camera tracking
-cameraX = x - 400;
-cameraY = y - 300;
+cameraX = x - 640;
+cameraY = y - 360;
 
 mouseToPlayerX = mouse_x - x;
 mouseToPlayerY = mouse_y - y;
@@ -78,8 +86,12 @@ mouseToPlayerY = mouse_y - y;
 cameraX += mouseToPlayerX*.1;
 cameraY += mouseToPlayerY*.1;
 
-camera_set_view_pos(view_camera[0], cameraX , cameraY);
+
+camera_set_view_size(view_camera[0], 1280 + cameraXScale, 720 + cameraYScale)
+camera_set_view_pos(view_camera[0], cameraX - cameraXScale/2 , cameraY - cameraYScale/2);
 aimDirection = point_direction(x,y,mouse_x,mouse_y);
+
+
 
 
 
