@@ -1,1 +1,0 @@
-/// @description initialize game params
