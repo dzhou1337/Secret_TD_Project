@@ -45,24 +45,50 @@ if(place_meeting(x,y+vspeed,obj_wall)){
 //non-movement keyboard inputs
 switch (keyboard_key) {
 	case ord("1"):
-		active_tool = tool.Build
+		active_tool = tool.Tool
 		break;
+		
 	case ord("2"):
-		active_tool = tool.None
+		active_tool = tool.Weapon1
+		break;
+		
+	case ord("3"):
+		active_tool = tool.Weapon2
+		break;
+		
+	case ord("4"):
+		active_tool = tool.BuildDMG
+		break;
+		
+	case ord("5"):
+		active_tool = tool.BuildSUP
+		break;
+		
+	case ord("6"):
+		active_tool = tool.Demolish
 		break;
 }
 
 //mouse inputs
 if(mouse_check_button_pressed(mb_left)){
 	switch(active_tool){
-		case tool.None:
+		case tool.Tool:
 			break;
 			
-		case tool.Build:
+		case tool.Weapon1:
+			break;
+			
+		case tool.Weapon2:
+			break;
+			
+		case tool.BuildDMG:
 			instance_create_layer(mouse_x, mouse_y, "Instances", obj_turret_0)
 			break;
+		
+		case tool.BuildSUP:
+			break;
 			
-		case tool.Weapon_1:
+		case tool.Demolish:
 			break;
 	}
 }
