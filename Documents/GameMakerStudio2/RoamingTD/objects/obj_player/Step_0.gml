@@ -1,20 +1,28 @@
 /// @description reading input and performing persistent actions
 
 //acceleration based movement
-if(keyboard_check(ord("W"))){
-	vspeed -= accel;
+if(!knocked){
+	if(keyboard_check(ord("W"))){
+		vspeed -= accel;
+	}
+
+	if(keyboard_check(ord("A"))){
+		hspeed -= accel;
+	}
+
+	if(keyboard_check(ord("S"))){
+		vspeed += accel;
+	}
+
+	if(keyboard_check(ord("D"))){
+		hspeed +=  accel;
+	}
 }
 
-if(keyboard_check(ord("A"))){
-	hspeed -= accel;
-}
-
-if(keyboard_check(ord("S"))){
-	vspeed += accel;
-}
-
-if(keyboard_check(ord("D"))){
-	hspeed +=  accel;
+if(knocked){
+	drag = .2
+} else {
+	drag = .8
 }
 
 //friction
@@ -27,6 +35,9 @@ if (speed > 0){
 }
 //caps movement speed at maxspeed
 speed = min(speed, maxspeed);
+if (speed == 0){
+	knocked = false
+}
 
 //better wall collision
 if(place_meeting(x+hspeed,y,obj_wall)){
@@ -83,6 +94,7 @@ if(mouse_check_button_pressed(mb_left)){
 			
 		case tool.BuildDMG:
 			instance_create_layer(mouse_x, mouse_y, "Instances", obj_turret_0)
+			scrap -= 100
 			break;
 		
 		case tool.BuildSUP:

@@ -22,4 +22,9 @@ switch(obj_player.active_tool){
 	
 }
 
-draw_sprite(spr_gui_hud_resources, 0, 0, 0);
+with(obj_player){
+	draw_text(20, 20, "HP: " + string(hp) + "/" + string(maxhp))
+	draw_text(20, 40, "Scrap: " + string(scrap) + "/" + string(maxscrap))
+	draw_text(20, 60, "Money: " + string(money))
+}
+
